@@ -1,0 +1,48 @@
+# Compiled object files and executables
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
+
+# macOS specific
+.DS_Store
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# Generated files
+*.generated.*
+*.gen.*
+
+# Unit test output
+*.testresult
+
+# Dependency folders (if used)
+node_modules/
+vendor/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Backup files
+*.~*
+*~
