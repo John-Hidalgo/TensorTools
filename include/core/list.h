@@ -17,8 +17,8 @@ public:
     void Display() const;
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
-    bool operator==(const List&);
-    bool operator!=(const List&);
+    bool operator==(const List&) const;
+    bool operator!=(const List&) const;
     List& operator=(const List&);
     List& operator=(List&&);
 private:

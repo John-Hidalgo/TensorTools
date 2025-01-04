@@ -78,37 +78,30 @@ template<typename T> const T& List<T>::operator[](const size_t index) const{
     }
     return this->_values[index];
 }
-template<typename T> bool List<T>::operator==(const List<T>& list)
-{
-    bool flag = true;
-    for (size_t i = 0; i < list._taille;++i)
-    {        
-        if (this->_values[i] == list._values[i])
-        {
-            return false;
+template<typename T> bool List<T>::operator==(const List<T>& list) const {
+    if (this->_size != list._size) {
+        return false;
+        for (size_t i = 0; i < this->_size; ++i) {
+            if (this->_values[i] != list._values[i]) {
+                return false; 
+            }
         }
     }
-    return flag;
-}
-template<typename T> bool List<T>::operator!=(const List& list)
-{
     return true;
+}
+template<typename T> bool List<T>::operator!=(const List<T>& list) const {
+    return !(*this == list);
 }
 template<typename T> List<T>& List<T>::operator=(const List& toCopy){
     if (this != &toCopy) {
         delete[] this->_values;
-
-        // Allocate new memory for the values
         this->_capacity = toCopy._capacity;
         this->_size = toCopy._size;
         this->_values = new T[this->_capacity];
-
-        // Copy the elements from toCopy
         for (size_t i = 0; i < this->_size; ++i) {
             this->_values[i] = toCopy._values[i];
         }
     }
-
     return *this;
 }
 template<typename T> List<T>& List<T>::operator=(List&& toMove){
@@ -121,7 +114,6 @@ template<typename T> List<T>& List<T>::operator=(List&& toMove){
     toMove._values = nullptr;
     toMove._capacity = 0;
     toMove._size = 0;
-
     return *this;
 }
 template<typename T> void List<T>::Resize(){
